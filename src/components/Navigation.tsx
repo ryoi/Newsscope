@@ -16,15 +16,15 @@ const Navigation: React.FC<NavigationProps> = ({ currentView, onViewChange, hasE
   ] as const;
 
   return (
-    <nav className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 overflow-x-auto">
+    <nav className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex space-x-4 sm:space-x-8 min-w-max">
+        <div className="flex space-x-2 sm:space-x-4 lg:space-x-8 overflow-x-auto scrollbar-hide">
           {navItems.map(item => (
             <button
               key={item.id}
               onClick={() => item.available && onViewChange(item.id)}
               disabled={!item.available}
-              className={`flex items-center space-x-1 sm:space-x-2 py-4 px-2 sm:px-0 border-b-2 transition-colors whitespace-nowrap ${
+              className={`flex items-center space-x-1 sm:space-x-2 py-3 sm:py-4 px-2 sm:px-3 lg:px-0 border-b-2 transition-colors whitespace-nowrap flex-shrink-0 ${
                 currentView === item.id
                   ? 'border-blue-500 text-blue-600 dark:text-blue-400'
                   : item.available
@@ -33,9 +33,9 @@ const Navigation: React.FC<NavigationProps> = ({ currentView, onViewChange, hasE
               }`}
             >
               <item.icon className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="font-medium text-sm sm:text-base">{item.label}</span>
+              <span className="font-medium text-xs sm:text-sm lg:text-base">{item.label}</span>
               {!item.available && (
-                <span className="hidden sm:inline px-2 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs rounded">
+                <span className="hidden lg:inline px-2 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs rounded">
                   Enterprise
                 </span>
               )}

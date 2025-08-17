@@ -129,7 +129,7 @@ function App() {
 
       <div className="max-w-7xl mx-auto flex">
         {/* Filter Sidebar */}
-        {showFilterSidebar && currentView === 'feed' && (
+        {currentView === 'feed' && (
           <div className="hidden lg:block">
             <FilterSidebar
               categories={categories}
@@ -148,7 +148,7 @@ function App() {
         )}
 
         {/* Main Content */}
-        <main className="flex-1 p-4 sm:p-6">
+        <main className="flex-1 p-3 sm:p-4 lg:p-6">
           {renderMainContent()}
         </main>
       </div>

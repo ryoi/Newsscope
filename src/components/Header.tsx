@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* Search Bar - Desktop */}
-          <div className="hidden lg:flex flex-1 max-w-2xl mx-8">
+          <div className="hidden md:flex flex-1 max-w-2xl mx-4 lg:mx-8">
             <div className="relative w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
@@ -66,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({
             {/* Subscription Status */}
             <button
               onClick={onSubscriptionClick}
-              className={`hidden sm:flex items-center space-x-2 px-3 py-1.5 rounded-lg border transition-colors ${
+              className={`hidden md:flex items-center space-x-2 px-3 py-1.5 rounded-lg border transition-colors ${
                 currentTier === 'basic' 
                   ? 'border-gray-300 hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800' 
                   : 'border-orange-300 bg-orange-50 hover:bg-orange-100 dark:bg-orange-900/20 dark:border-orange-500'
@@ -81,25 +81,25 @@ const Header: React.FC<HeaderProps> = ({
             {/* Theme Toggle */}
             <button
               onClick={onThemeToggle}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="hidden sm:block p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             >
               {theme === 'light' ? '🌙' : '☀️'}
             </button>
 
             {/* Settings */}
-            <button className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+            <button className="hidden sm:block p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
               <Settings className="w-5 h-5 text-gray-600 dark:text-gray-400" />
             </button>
 
             {/* User Profile */}
-            <button className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+            <button className="hidden sm:block p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
               <User className="w-5 h-5 text-gray-600 dark:text-gray-400" />
             </button>
 
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             >
               {isMobileMenuOpen ? (
                 <X className="w-5 h-5 text-gray-600 dark:text-gray-400" />
@@ -112,7 +112,7 @@ const Header: React.FC<HeaderProps> = ({
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-200 dark:border-gray-700 py-4 px-4">
+          <div className="md:hidden border-t border-gray-200 dark:border-gray-700 py-4 px-4">
             <div className="space-y-4">
               {/* Mobile Search */}
               <div className="relative">
@@ -138,6 +138,16 @@ const Header: React.FC<HeaderProps> = ({
                 {currentTier !== 'basic' && <Crown className="w-4 h-4 text-orange-500" />}
                 <span className={`text-sm font-medium capitalize ${getTierColor()}`}>
                   {currentTier} Plan
+                </span>
+              </button>
+
+              {/* Mobile Theme Toggle */}
+              <button
+                onClick={onThemeToggle}
+                className="w-full flex items-center justify-center space-x-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+              >
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
                 </span>
               </button>
             </div>
