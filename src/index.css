@@ -11,6 +11,12 @@
   display: none;  /* Safari and Chrome */
 }
 
+/* Smooth scrolling for navigation */
+.scrollbar-hide {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Ensure proper mobile viewport */
 @media (max-width: 640px) {
   .line-clamp-2 {
@@ -26,6 +32,11 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+  
+  /* Navigation specific mobile fixes */
+  nav .flex {
+    gap: 0.5rem;
+  }
 }
 
 /* Fix mobile touch targets */
@@ -36,5 +47,12 @@
   
   input {
     min-height: 44px;
+  }
+  
+  /* Ensure navigation items are properly sized */
+  nav button {
+    min-width: fit-content;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 }
