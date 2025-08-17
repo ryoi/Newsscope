@@ -58,11 +58,11 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
         </div>
 
         <div className="p-6">
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {tiers.map(tier => (
               <div
                 key={tier.id}
-                className={`rounded-lg border-2 p-6 relative transition-all hover:shadow-lg ${getTierStyle(tier.id)} ${
+                className={`rounded-lg border-2 p-4 sm:p-6 relative transition-all hover:shadow-lg ${getTierStyle(tier.id)} ${
                   currentTier === tier.id ? 'ring-2 ring-blue-500' : ''
                 }`}
               >
@@ -74,15 +74,15 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
                   </div>
                 )}
 
-                <div className="text-center mb-6">
+                <div className="text-center mb-4 sm:mb-6">
                   <div className="flex justify-center mb-3">
                     {getTierIcon(tier.id)}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
                     {tier.name}
                   </h3>
                   <div className="mb-4">
-                    <span className="text-3xl font-bold text-gray-900 dark:text-white">
+                    <span className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
                       ${tier.price}
                     </span>
                     {tier.price > 0 && (
@@ -91,11 +91,11 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
                   </div>
                 </div>
 
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                   {tier.features.map((feature, index) => (
                     <li key={index} className="flex items-center space-x-2">
                       <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
-                      <span className="text-sm text-gray-700 dark:text-gray-300">
+                      <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
                         {feature}
                       </span>
                     </li>
@@ -105,7 +105,7 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
                 <button
                   onClick={() => onUpgrade(tier.id)}
                   disabled={currentTier === tier.id}
-                  className={`w-full py-3 px-4 rounded-lg font-medium transition-colors ${getButtonStyle(tier.id)}`}
+                  className={`w-full py-2 sm:py-3 px-4 rounded-lg font-medium transition-colors text-sm sm:text-base ${getButtonStyle(tier.id)}`}
                 >
                   {currentTier === tier.id ? 'Current Plan' : 
                    tier.price === 0 ? 'Downgrade' : 'Upgrade'}

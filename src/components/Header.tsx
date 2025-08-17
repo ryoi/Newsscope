@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* Search Bar - Desktop */}
-          <div className="hidden md:flex flex-1 max-w-2xl mx-8">
+          <div className="hidden lg:flex flex-1 max-w-2xl mx-8">
             <div className="relative w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
@@ -99,7 +99,7 @@ const Header: React.FC<HeaderProps> = ({
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             >
               {isMobileMenuOpen ? (
                 <X className="w-5 h-5 text-gray-600 dark:text-gray-400" />
@@ -112,7 +112,7 @@ const Header: React.FC<HeaderProps> = ({
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 dark:border-gray-700 py-4">
+          <div className="lg:hidden border-t border-gray-200 dark:border-gray-700 py-4 px-4">
             <div className="space-y-4">
               {/* Mobile Search */}
               <div className="relative">

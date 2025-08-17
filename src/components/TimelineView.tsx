@@ -63,21 +63,21 @@ const TimelineView: React.FC<TimelineViewProps> = ({ events, onArticleSelect, ha
       </div>
 
       <div className="bg-white dark:bg-gray-800 rounded-lg p-6">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
           <div className="flex items-center space-x-3">
             <Calendar className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
               News Timeline
             </h2>
           </div>
 
           {/* Period Selector */}
-          <div className="flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
+          <div className="flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1 overflow-x-auto">
             {periods.map(period => (
               <button
                 key={period.value}
                 onClick={() => setSelectedPeriod(period.value)}
-                className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
+                className={`px-2 sm:px-3 py-1 rounded text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                   selectedPeriod === period.value
                     ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm'
                     : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'

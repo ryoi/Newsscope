@@ -108,7 +108,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
   );
 
   return (
-    <aside className="w-full lg:w-80 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 p-6 overflow-y-auto">
+    <aside className="w-full lg:w-80 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 p-4 lg:p-6 overflow-y-auto">
       <div className="flex items-center space-x-2 mb-6">
         <Filter className="w-5 h-5 text-gray-600 dark:text-gray-400" />
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">

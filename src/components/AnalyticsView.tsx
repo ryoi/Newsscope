@@ -239,21 +239,21 @@ const AnalyticsView: React.FC<AnalyticsViewProps> = ({ hasEnterpriseAccess }) =>
 
       {/* Analytics Dashboard */}
       <div className="bg-white dark:bg-gray-800 rounded-lg p-6">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
           <div className="flex items-center space-x-3">
             <BarChart3 className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
               Analytics Dashboard
             </h2>
           </div>
 
           {/* Period Selector */}
-          <div className="flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
+          <div className="flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1 overflow-x-auto">
             {periods.map(period => (
               <button
                 key={period.value}
                 onClick={() => setSelectedPeriod(period.value)}
-                className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
+                className={`px-2 sm:px-3 py-1 rounded text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                   selectedPeriod === period.value
                     ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm'
                     : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
@@ -266,22 +266,22 @@ const AnalyticsView: React.FC<AnalyticsViewProps> = ({ hasEnterpriseAccess }) =>
         </div>
 
         {/* Metric Selector */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           {metrics.map(metric => (
             <button
               key={metric.value}
               onClick={() => setSelectedMetric(metric.value)}
-              className={`p-4 rounded-lg border-2 transition-all ${
+              className={`p-3 sm:p-4 rounded-lg border-2 transition-all ${
                 selectedMetric === metric.value
                   ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/20'
                   : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
               }`}
             >
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-2 sm:space-x-3">
                 <metric.icon className={`w-5 h-5 ${
                   selectedMetric === metric.value ? 'text-purple-600 dark:text-purple-400' : 'text-gray-400'
                 }`} />
-                <span className={`text-sm font-medium ${
+                <span className={`text-xs sm:text-sm font-medium ${
                   selectedMetric === metric.value ? 'text-purple-900 dark:text-purple-100' : 'text-gray-700 dark:text-gray-300'
                 }`}>
                   {metric.label}

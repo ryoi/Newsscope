@@ -44,7 +44,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
   };
 
   return (
-    <article className="bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-700">
+    <article className="bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-700 overflow-hidden">
       {/* Article Image */}
       <div className="aspect-video w-full overflow-hidden rounded-t-lg">
         <img
@@ -54,32 +54,32 @@ const NewsCard: React.FC<NewsCardProps> = ({
         />
       </div>
 
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {/* Category and Source */}
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center space-x-2">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+          <div className="flex items-center space-x-2 flex-wrap">
             <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded">
               {article.category}
             </span>
-            <span className="text-sm text-gray-500 dark:text-gray-400">
+            <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
               {article.source}
             </span>
           </div>
           <div className="flex items-center space-x-2">
             <Clock className="w-4 h-4 text-gray-400" />
-            <span className="text-sm text-gray-500 dark:text-gray-400">
+            <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
               {article.readTime}m read
             </span>
           </div>
         </div>
 
         {/* Title */}
-        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer">
+        <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer">
           {article.title}
         </h2>
 
         {/* Excerpt */}
-        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
           {article.excerpt}
         </p>
 

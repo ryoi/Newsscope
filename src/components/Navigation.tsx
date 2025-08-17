@@ -16,15 +16,15 @@ const Navigation: React.FC<NavigationProps> = ({ currentView, onViewChange, hasE
   ] as const;
 
   return (
-    <nav className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+    <nav className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 overflow-x-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex space-x-8">
+        <div className="flex space-x-4 sm:space-x-8 min-w-max">
           {navItems.map(item => (
             <button
               key={item.id}
               onClick={() => item.available && onViewChange(item.id)}
               disabled={!item.available}
-              className={`flex items-center space-x-2 py-4 border-b-2 transition-colors ${
+              className={`flex items-center space-x-1 sm:space-x-2 py-4 px-2 sm:px-0 border-b-2 transition-colors whitespace-nowrap ${
                 currentView === item.id
                   ? 'border-blue-500 text-blue-600 dark:text-blue-400'
                   : item.available
@@ -32,10 +32,10 @@ const Navigation: React.FC<NavigationProps> = ({ currentView, onViewChange, hasE
                   : 'border-transparent text-gray-400 cursor-not-allowed'
               }`}
             >
-              <item.icon className="w-5 h-5" />
-              <span className="font-medium">{item.label}</span>
+              <item.icon className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="font-medium text-sm sm:text-base">{item.label}</span>
               {!item.available && (
-                <span className="px-2 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs rounded">
+                <span className="hidden sm:inline px-2 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs rounded">
                   Enterprise
                 </span>
               )}
